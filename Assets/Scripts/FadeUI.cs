@@ -15,11 +15,15 @@ public class FadeUI : MonoBehaviour
 
         if (isFaded)
         {
-            canvasGroup.DOFade(0, 2);
+            canvasGroup.DOFade(0, 1).OnComplete(() => {
+                Debug.Log("canvasGroup.DOFade(0, 2)");
+            });
         }
         else
         {
-            canvasGroup.DOFade(1, 2);
+            canvasGroup.DOFade(1, 1).OnComplete(() => {
+                Debug.Log("canvasGroup.DOFade(1, 2)");
+            });
         }
     }
 
