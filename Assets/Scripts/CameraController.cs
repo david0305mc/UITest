@@ -79,7 +79,7 @@ public class CameraController : MonoBehaviour
             newZoom -= zoomAmount;
         }
 
-        newZoom = new Vector3(Mathf.Clamp(newZoom.x, 0, 10), Mathf.Clamp(newZoom.y, 0, 10), Mathf.Clamp(newZoom.z, 0, 10));
+        newZoom = new Vector3(newZoom.x, Mathf.Clamp(newZoom.y, 1, 10), Mathf.Clamp(newZoom.z, 1, 10));
         transform.position = Vector3.Lerp(transform.position, newPos, moveAmount * Time.deltaTime);
         transform.rotation = Quaternion.Lerp(transform.rotation, newRot, Time.deltaTime);
         cameraTransform.localPosition = Vector3.Lerp(cameraTransform.localPosition, newZoom, Time.deltaTime);
