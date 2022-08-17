@@ -6,7 +6,6 @@ using CodeMonkey.Utils;
 
 public class GridXZ <TGridObject>
 {
-
     public event EventHandler<OnGridObjectChangedEventArgs> OnGridObjectChanged;
     public class OnGridObjectChangedEventArgs : EventArgs
     {
@@ -72,5 +71,21 @@ public class GridXZ <TGridObject>
         z = Mathf.FloorToInt((worldPosition - originPosition).z / cellSize);
     }
 
+    public TGridObject GetGridObject(int x, int z)
+    {
+        if (x >= 0 && z >= 0 && x < width && z < height)
+        {
+            return gridArray[x, z];
+        }
+        else
+        {
+            return default(TGridObject);
+        }
+    }
+
+    public void TriggerGridObjectChanged(int x, int z)
+    {
+        OnGridObjectChanged?.Invoke(this, new OnGridObjectChangedEventArgs { x = x, z = z });
+    }
 
 }
