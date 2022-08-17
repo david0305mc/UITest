@@ -8,6 +8,8 @@ public class BuildingManager : MonoBehaviour
     [SerializeField] private LayerMask mouseColliderLyaerMask;
     [SerializeField] private GameObject testObject;
     [SerializeField] private PlacedObjectTypeSO placedObject;
+
+    private PlacedObjectTypeSO.Dir dir = PlacedObjectTypeSO.Dir.Down;
     private GridXZ<GridObject> grid;
 
     private void Start()
@@ -21,7 +23,7 @@ public class BuildingManager : MonoBehaviour
             var mouseFloorPos = GetMouseFloorPosition();
             grid.GetXZ(mouseFloorPos, out int x, out int z);
 
-            List<Vector2Int> gridPositionList = placedObject.GetGridPositionList(new Vector2Int(x, z), PlacedObjectTypeSO.Dir.Down);
+            List<Vector2Int> gridPositionList = placedObject.GetGridPositionList(new Vector2Int(x, z), dir);
 
             bool canBuild = true;
 
@@ -36,7 +38,14 @@ public class BuildingManager : MonoBehaviour
 
             if (canBuild)
             {
-                var builtTransform = Instantiate(placedObject.prefab, grid.GetWorldPosition(x, z), Quaternion.identity);
+                Vector2Int rotationOffset = placedObject.GetRotationOffset(dir);
+                Vector3 placedObjectWorldPosition = grid.GetWorldPosition(x, z) + new Vector3(rotationOffset.x, 0, rotationOffset.y) * grid.GetCellSize();
+                var builtTransform = 
+                    Instantiate(
+                        placedObject.prefab,
+                        placedObjectWorldPosition,
+                        Quaternion.Euler(0, placedObject.GetRotationAngle(dir), 0)
+                        );
                 foreach (Vector2Int gridPosition in gridPositionList)
                 {
                     grid.GetGridObject(gridPosition.x, gridPosition.y).SetTransform(builtTransform);
@@ -46,6 +55,13 @@ public class BuildingManager : MonoBehaviour
             {
                 UtilsClass.CreateWorldTextPopup("Cannot build hero!", mouseFloorPos);
             }
+        }
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            dir = PlacedObjectTypeSO.GetNextDir(dir);
+            var mouseFloorPos = GetMouseFloorPosition();
+            UtilsClass.CreateWorldTextPopup("" + dir, mouseFloorPos);
         }
     }
 
