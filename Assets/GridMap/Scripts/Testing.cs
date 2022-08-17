@@ -23,8 +23,6 @@ public class Testing : MonoBehaviour {
 
     private void Start() {
         grid = new Grid(100, 100, 10f, new Vector3(0, 0));
-
-        HeatMapVisual heatMapVisual = new HeatMapVisual(grid, GetComponent<MeshFilter>());
     }
 
     private void Update() {
