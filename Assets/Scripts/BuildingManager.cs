@@ -6,11 +6,19 @@ public class BuildingManager : MonoBehaviour
 {
     [SerializeField] private LayerMask mouseColliderLyaerMask;
     [SerializeField] private GameObject testObject;
+    private GridXZ<GridObject> grid;
+
+    private void Start()
+    {
+        grid = new GridXZ<GridObject>(100, 100, 10f, new Vector3(0, 0, 0), (grid, x, y) => { return new GridObject(grid, x, y); });
+    }
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {
-            Instantiate(testObject, GetMouseFloorPosition(), Quaternion.identity);
+            var mouseFloorPos = GetMouseFloorPosition();
+            grid.GetXZ(mouseFloorPos, out int x, out int z);
+            Instantiate(testObject, grid.GetWorldPosition(x, z), Quaternion.identity);
         }
     }
 
@@ -26,4 +34,25 @@ public class BuildingManager : MonoBehaviour
             return Vector3.zero;
         }
     }
+}
+
+
+public class GridObject
+{
+    private GridXZ<GridObject> grid;
+    private int x;
+    private int y;
+
+    public GridObject(GridXZ<GridObject> grid, int x, int y)
+    {
+        this.grid = grid;
+        this.x = x;
+        this.y = y;
+    }
+
+    public override string ToString()
+    {
+        return x + ", " + y + "\n";
+    }
+
 }
