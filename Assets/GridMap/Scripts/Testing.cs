@@ -27,7 +27,7 @@ public class Testing : MonoBehaviour {
 
     private void Update() {
         //HandleClickToModifyGrid();
-        HandleHeatMapMouseMove();
+        //HandleHeatMapMouseMove();
 
         if (Input.GetMouseButtonDown(1)) {
             Debug.Log(grid.GetValue(UtilsClass.GetMouseWorldPosition()));
