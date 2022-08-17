@@ -5,13 +5,18 @@ using CodeMonkey.Utils;
 
 public class BuildingManager : MonoBehaviour
 {
+    public static BuildingManager Instance { get; private set; }
+
     [SerializeField] private LayerMask mouseColliderLyaerMask;
     [SerializeField] private GameObject testObject;
     [SerializeField] private PlacedObjectTypeSO placedObject;
 
     private PlacedObjectTypeSO.Dir dir = PlacedObjectTypeSO.Dir.Down;
     private GridXZ<GridObject> grid;
-
+    private void Awake()
+    {
+        Instance = this;
+    }
     private void Start()
     {
         grid = new GridXZ<GridObject>(30, 30, 10f, new Vector3(0, 0, 0), (grid, x, y) => { return new GridObject(grid, x, y); });
@@ -64,7 +69,7 @@ public class BuildingManager : MonoBehaviour
             UtilsClass.CreateWorldTextPopup("" + dir, mouseFloorPos);
         }
     }
-
+    public static Vector3 GetMouseWorldPosition() => Instance.GetMouseFloorPosition();
     public Vector3 GetMouseFloorPosition()
     {
         var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -76,6 +81,38 @@ public class BuildingManager : MonoBehaviour
         {
             return Vector3.zero;
         }
+    }
+    public Vector3 GetMouseWorldSnappedPosition()
+    {
+        Vector3 mousePosition = GetMouseFloorPosition();
+        grid.GetXZ(mousePosition, out int x, out int z);
+
+        if (placedObject != null)
+        {
+            Vector2Int rotationOffset = placedObject.GetRotationOffset(dir);
+            Vector3 placedObjectWorldPosition = grid.GetWorldPosition(x, z) + new Vector3(rotationOffset.x, 0, rotationOffset.y) * grid.GetCellSize();
+            return placedObjectWorldPosition;
+        }
+        else
+        {
+            return mousePosition;
+        }
+    }
+    public Quaternion GetPlacedObjectRotation()
+    {
+        if (placedObject != null)
+        {
+            return Quaternion.Euler(0, placedObject.GetRotationAngle(dir), 0);
+        }
+        else
+        {
+            return Quaternion.identity;
+        }
+    }
+
+    public PlacedObjectTypeSO GetPlacedObjectTypeSO()
+    {
+        return placedObject;
     }
 }
 

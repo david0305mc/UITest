@@ -15,5 +15,5 @@ MonoBehaviour:
   nameString: Building 1
   prefab: {fileID: 6844009675835466032, guid: 477704b09f20ac3479a7701295a71f70, type: 3}
   visual: {fileID: 6844009675835466032, guid: 477704b09f20ac3479a7701295a71f70, type: 3}
-  width: 1
-  height: 2
+  width: 2
+  height: 1
