@@ -7,12 +7,20 @@ public class PickingSystem : MonoBehaviour
     [SerializeField] private LayerMask objectLayerMask;
     [SerializeField] private LayerMask landLayerMask;
 
+    public static PickingSystem Instance { get; private set; }
 
     private Transform selectedObject;
+    private void Awake()
+    {
+        Instance = this;
+    }
+    public bool IsPicking()
+    {
+        return selectedObject != null;
+    }
     // Update is called once per frame
     void Update()
     {
-
         if (Input.GetMouseButtonDown(0))
         {
             var ray = Camera.main.ScreenPointToRay(Input.mousePosition);

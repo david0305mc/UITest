@@ -24,8 +24,11 @@ public class CameraController : MonoBehaviour
     }
     void Update()
     {
-        HandleCameraByMouse();
-        HandleCameraByKeyboard();
+        if (!PickingSystem.Instance.IsPicking())
+        {
+            HandleCameraByMouse();
+            HandleCameraByKeyboard();
+        }
     }
 
     private void HandleCameraByMouse()
