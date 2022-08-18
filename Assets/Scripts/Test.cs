@@ -7,6 +7,6 @@ public class Test : MonoBehaviour
 
     private void Start()
     {
-        transform.LookAt(transform.parent);
+        //transform.LookAt(transform.parent);
     }
 }

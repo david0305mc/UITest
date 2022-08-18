@@ -198,7 +198,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4092265311993138602, guid: d7c4ddcc7b0758340a0eb3a70db0c473, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4514053725128135340, guid: d7c4ddcc7b0758340a0eb3a70db0c473, type: 3}
       propertyPath: m_RootOrder
@@ -254,11 +254,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4514053725368426275, guid: d7c4ddcc7b0758340a0eb3a70db0c473, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.96777517
+      value: 0.99566
       objectReference: {fileID: 0}
     - target: {fileID: 4514053725368426275, guid: d7c4ddcc7b0758340a0eb3a70db0c473, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.251816
+      value: 0.0930657
       objectReference: {fileID: 0}
     - target: {fileID: 4514053725368426275, guid: d7c4ddcc7b0758340a0eb3a70db0c473, type: 3}
       propertyPath: m_LocalRotation.y
@@ -270,11 +270,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4514053725368426275, guid: d7c4ddcc7b0758340a0eb3a70db0c473, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 29.17
+      value: 10.68
       objectReference: {fileID: 0}
     - target: {fileID: 7711420976342120426, guid: d7c4ddcc7b0758340a0eb3a70db0c473, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d7c4ddcc7b0758340a0eb3a70db0c473, type: 3}
@@ -296,7 +296,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!65 &1482494226
 BoxCollider:
   m_ObjectHideFlags: 0

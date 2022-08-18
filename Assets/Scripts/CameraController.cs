@@ -14,12 +14,14 @@ public class CameraController : MonoBehaviour
     private Vector3 newZoom;
     private Vector3 dragStartPos;
     private Vector3 dragCurrPos;
+
     // Update is called once per frame
 
     private void Start()
     {
         newRot = transform.rotation;
         newZoom = new Vector3(0, 10, -10);
+        cameraTransform.LookAt(transform);
     }
     void Update()
     {
@@ -42,7 +44,7 @@ public class CameraController : MonoBehaviour
                 dragStartPos = ray.GetPoint(entry);
             }
         }
-        
+
         if (Input.GetMouseButton(0))
         {
             Plane plane = new Plane(Vector3.up, Vector3.zero);
@@ -51,6 +53,7 @@ public class CameraController : MonoBehaviour
             {
                 dragCurrPos = ray.GetPoint(enter);
                 newPos = transform.position + dragStartPos - dragCurrPos;
+                newPos = new Vector3(Mathf.Clamp(newPos.x, -5, 5), Mathf.Clamp(newPos.y, -5, 5), Mathf.Clamp(newPos.z, -5, 5));
             }
         }
     }
