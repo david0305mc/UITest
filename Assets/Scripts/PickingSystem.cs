@@ -51,6 +51,18 @@ public class PickingSystem : MonoBehaviour
                         Debug.Log("hit.transform.localPosition " + point);
                     }
                 }
+                //var mainCamera = Camera.main;
+                ////addPos = Vector3.zero;
+                //if (Input.mousePosition.y > Screen.height - 100)
+                //{
+                //    mainCamera.transform.position += mainCamera.transform.position + new Vector3(0, 0, 0.5f);
+                //}
+
+                //if (Input.mousePosition.y < 100)
+                //{
+                //    mainCamera.transform.position += mainCamera.transform.position + new Vector3(0, 0, -0.5f);
+                //}
+
             }
         }
 
