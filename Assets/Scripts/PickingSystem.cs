@@ -41,6 +41,16 @@ public class PickingSystem : MonoBehaviour
                     selectedObject.position = hit.point;
                     Debug.Log("hit.transform.localPosition " + hit.transform.localPosition);
                 }
+                else
+                {
+                    Plane plane = new Plane(Vector3.up, Vector3.zero);
+                    if (plane.Raycast(ray, out float enter))
+                    {
+                        var point = ray.GetPoint(enter);
+                        selectedObject.position = point;
+                        Debug.Log("hit.transform.localPosition " + point);
+                    }
+                }
             }
         }
 

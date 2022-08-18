@@ -14,6 +14,7 @@ public class CameraController : MonoBehaviour
     private Vector3 newZoom;
     private Vector3 dragStartPos;
     private Vector3 dragCurrPos;
+    private Vector3 addPos;
 
     // Update is called once per frame
 
@@ -47,19 +48,51 @@ public class CameraController : MonoBehaviour
 
         if (Input.GetMouseButton(0))
         {
+            //addPos = Vector3.zero;
+            if (Input.mousePosition.y > Screen.height - 100)
+            {
+                addPos += new Vector3(0, 0, 0.1f);
+            }
+
+            if (Input.mousePosition.y < 100)
+            {
+                addPos += new Vector3(0, 0, -0.1f);
+            }
+
             Plane plane = new Plane(Vector3.up, Vector3.zero);
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (plane.Raycast(ray, out float enter))
             {
-                dragCurrPos = ray.GetPoint(enter);
+                dragCurrPos = ray.GetPoint(enter) - addPos;
                 newPos = transform.position + dragStartPos - dragCurrPos;
                 newPos = new Vector3(Mathf.Clamp(newPos.x, -5, 5), Mathf.Clamp(newPos.y, -5, 5), Mathf.Clamp(newPos.z, -5, 5));
             }
+           
+        }
+
+        if (Input.GetMouseButtonUp(0))
+        {
+            addPos = Vector3.zero;
         }
     }
 
     private void HandleCameraByKeyboard()
     {
+        //if (Input.GetMouseButton(0))
+        //{
+        //    if (Input.mousePosition.y > Screen.height - 100)
+        //    {
+        //        newPos += new Vector3(0, 0, 1f);
+        //        Debug.Log("Input.mousePosition.y" + Input.mousePosition.y);
+        //    }
+
+        //    //if (Input.mousePosition.y < 100)
+        //    //{
+        //    //    newPos += new Vector3(0, 0, -1f);
+        //    //}
+        //}
+        ////Screen.width
+
         if (Input.GetKey(KeyCode.UpArrow))
         {
             newPos += new Vector3(0, 0, 0.1f);
