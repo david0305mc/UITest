@@ -9,6 +9,7 @@ public class BuildingManager : MonoBehaviour
 
     [SerializeField] private LayerMask mouseColliderLyaerMask;
     [SerializeField] private GameObject testObject;
+    [SerializeField] private GameObject cellObject;
     [SerializeField] private PlacedObjectTypeSO placedObject;
 
     private PlacedObjectTypeSO.Dir dir = PlacedObjectTypeSO.Dir.Down;
@@ -19,6 +20,13 @@ public class BuildingManager : MonoBehaviour
     }
     private void Start()
     {
+        for (int x = 0; x < 30; x++)
+        {
+            for (int y = 0; y < 30; y++)
+            {
+                Instantiate(cellObject, new Vector3(x * 10, 0, y * 10), Quaternion.identity);
+            }
+        }
         grid = new GridXZ<GridObject>(30, 30, 10f, new Vector3(0, 0, 0), (grid, x, y) => { return new GridObject(grid, x, y); });
     }
     void Update()

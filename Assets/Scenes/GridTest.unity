@@ -242,6 +242,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   testObject: {fileID: 7119396571675647659, guid: 477704b09f20ac3479a7701295a71f70, type: 3}
+  cellObject: {fileID: 1576363152619798675, guid: 8ba076d99477a3145812625fa460a31f, type: 3}
   placedObject: {fileID: 11400000, guid: a1f5585a2346ebe41be36ec0215d7902, type: 2}
 --- !u!4 &409864908
 Transform:
@@ -484,7 +485,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: c432621d6fc7c29418bef2bc628dfbfe, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
