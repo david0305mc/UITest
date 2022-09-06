@@ -11,6 +11,7 @@ public class ObjFollowMouse : MonoBehaviour
     {
         placeObjectOnGrid = FindObjectOfType<PlaceObjectOnGrid>();
     }
+
     private void Update()
     {
         if (!isOnGrid)
