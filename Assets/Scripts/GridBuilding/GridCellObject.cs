@@ -4,15 +4,21 @@ using UnityEngine;
 
 public class GridCellObject : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private GameObject defaultPlane;
+    [SerializeField] private GameObject selectedPlane;
+    
+    private int x;
+    private int y;
+
+    private void Awake()
     {
-        
+        SetSelected(false);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void SetSelected(bool val)
     {
-        
+        defaultPlane.SetActive(!val);
+        selectedPlane.SetActive(val);
     }
 }
+

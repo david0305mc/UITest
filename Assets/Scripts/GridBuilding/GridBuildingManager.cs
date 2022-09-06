@@ -8,8 +8,11 @@ public class GridBuildingManager : MonoBehaviour
 {
     [SerializeField] private Transform gridRoot;
     [SerializeField] private GameObject gridCellPrefab;
+    [SerializeField] private GameObject previewObjPrefab;
     [SerializeField] private LayerMask mouseColliderLyaerMask;
 
+    private GridBuilding.GridXZ gridXZ;
+    private GameObject previewObject;
     public static GridBuildingManager Inst { get; private set; }
     private void Awake()
     {
@@ -18,13 +21,11 @@ public class GridBuildingManager : MonoBehaviour
 
     void Start()
     {
-        Enumerable.Range(0, 5).ToList().ForEach(x =>
-        {
-            Enumerable.Range(0, 5).ToList().ForEach(z =>
-            {
-                Instantiate(gridCellPrefab, new Vector3(x, 0, z), Quaternion.identity, gridRoot);
-            });
+        gridXZ = new GridBuilding.GridXZ(30, 30, (x, z) => {
+            return Instantiate(gridCellPrefab, new Vector3(x, 0, z), Quaternion.identity, gridRoot).GetComponent<GridCellObject>();
         });
+
+        previewObject = Instantiate(previewObjPrefab, Vector3.zero, Quaternion.identity, gridRoot);
     }
 
     public Vector3 GetMouseFloorPosition()
@@ -40,5 +41,17 @@ public class GridBuildingManager : MonoBehaviour
             plane.Raycast(ray, out float enter);
             return ray.GetPoint(enter);
         }
+    }
+
+
+    private void Update()
+    {
+        if (Input.GetMouseButtonUp(0))
+        {
+            Instantiate(previewObjPrefab, gridXZ.GetGridPoint(GetMouseFloorPosition()), Quaternion.identity, gridRoot);
+        }
+
+        gridXZ.SelectCell(GetMouseFloorPosition());
+        //previewObject.transform.position = gridXZ.GetGridPoint(GetMouseFloorPosition());
     }
 }
