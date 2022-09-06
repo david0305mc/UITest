@@ -44,7 +44,7 @@ namespace GridBuilding
 
         public GridCellObject GetGridObjectByPosition(Vector3 position)
         {
-            return GetGridObject((int)position.x, (int)position.z);
+            return GetGridObject(Mathf.FloorToInt(position.x), Mathf.FloorToInt(position.z));
         }
 
         public void SelectCell(Vector3 position)

@@ -276,17 +276,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1070962584462857505, guid: 9fad93a239de4ee4ba7dbae89dcd94e7, type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
     - target: {fileID: 5514035138775449708, guid: 9fad93a239de4ee4ba7dbae89dcd94e7, type: 3}
       propertyPath: m_Name
       value: GridCellObject
-      objectReference: {fileID: 0}
-    - target: {fileID: 5514035138775449708, guid: 9fad93a239de4ee4ba7dbae89dcd94e7, type: 3}
-      propertyPath: m_Layer
-      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 5514035138775449708, guid: 9fad93a239de4ee4ba7dbae89dcd94e7, type: 3}
       propertyPath: m_IsActive
@@ -480,67 +472,6 @@ MonoBehaviour:
   mouseColliderLyaerMask:
     serializedVersion: 2
     m_Bits: 128
---- !u!1001 &4088111085289093016
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1839534963139880801, guid: 2c5af2d9565ad474aa86148ad452755f, type: 3}
-      propertyPath: m_RootOrder
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 1839534963139880801, guid: 2c5af2d9565ad474aa86148ad452755f, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1839534963139880801, guid: 2c5af2d9565ad474aa86148ad452755f, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1839534963139880801, guid: 2c5af2d9565ad474aa86148ad452755f, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1839534963139880801, guid: 2c5af2d9565ad474aa86148ad452755f, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1839534963139880801, guid: 2c5af2d9565ad474aa86148ad452755f, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1839534963139880801, guid: 2c5af2d9565ad474aa86148ad452755f, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1839534963139880801, guid: 2c5af2d9565ad474aa86148ad452755f, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1839534963139880801, guid: 2c5af2d9565ad474aa86148ad452755f, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1839534963139880801, guid: 2c5af2d9565ad474aa86148ad452755f, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1839534963139880801, guid: 2c5af2d9565ad474aa86148ad452755f, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4310809200702098041, guid: 2c5af2d9565ad474aa86148ad452755f, type: 3}
-      propertyPath: m_Name
-      value: GridCellPreviewObj
-      objectReference: {fileID: 0}
-    - target: {fileID: 4310809200702098041, guid: 2c5af2d9565ad474aa86148ad452755f, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 2c5af2d9565ad474aa86148ad452755f, type: 3}
 --- !u!1001 &5029542353302960204
 PrefabInstance:
   m_ObjectHideFlags: 0
