@@ -468,7 +468,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gridRoot: {fileID: 509159153}
   gridCellPrefab: {fileID: 5514035138775449708, guid: 9fad93a239de4ee4ba7dbae89dcd94e7, type: 3}
-  previewObjPrefab: {fileID: 426135679397942549, guid: 4e4e2b298d0fbc74eaa8936956358f07, type: 3}
+  previewObjPrefab: {fileID: 564913037726354837, guid: 5d63fae527069a745b63036980a1e4c5, type: 3}
   mouseColliderLyaerMask:
     serializedVersion: 2
     m_Bits: 128
