@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+using GridBuilding;
+
 public class ObjFollowMouse : MonoBehaviour
 {
     private PlaceObjectOnGrid placeObjectOnGrid;
